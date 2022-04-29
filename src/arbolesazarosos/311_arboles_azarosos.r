@@ -9,7 +9,7 @@ require("rpart")
 require("rpart.plot")
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("D:\\gdrive\\Austral2022R\\")  #Establezco el Working Directory
+setwd( "E:\\Documents\\Maestria\\LabImplementacion" )  #Establezco el Working Directory
 
 #cargo los datos donde entreno
 dtrain  <- fread("./datasets/paquete_premium_202011.csv")
