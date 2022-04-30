@@ -20,13 +20,13 @@ particionar  <- function( data,  division, agrupa="",  campo="fold", start=1, se
 #------------------------------------------------------------------------------
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd( "E:\\Documents\\Maestria\\LabImplementacion" ) #Establezco el Working Directory
+setwd("D:\\gdrive\\Austral2022R\\")   #Establezco el Working Directory
 #cargo los datos
 
 dataset  <- fread("./datasets/paquete_premium_202011.csv")
 
 #particiono estratificadamente el dataset
-particionar( dataset, division=c(70,30), agrupa="clase_ternaria", seed= 104183 )  #Cambiar por la primer semilla de cada uno !
+particionar( dataset, division=c(70,30), agrupa="clase_ternaria", seed= 102191 )  #Cambiar por la primer semilla de cada uno !
 
 param_basicos  <- list( "cp"=         0,  #complejidad minima
                         "minsplit"=  10,  #minima cantidad de registros en un nodo para hacer el split
@@ -47,7 +47,7 @@ prediccion  <- predict( modelo,   #el modelo que genere recien
 
 #prediccion es una matriz con TRES columnas, llamadas "BAJA+1", "BAJA+2"  y "CONTINUA"
 #cada columna es el vector de probabilidades 
-dataset[,-ctrx_quarter]
+
 #agrego una columna que es la de las ganancias
 dataset[  , ganancia :=  ifelse( clase_ternaria=="BAJA+2", 59000, -1000 ) ]
 
