@@ -68,4 +68,7 @@ fwrite( tb_importancia,
         file= archivo_importancia, 
         sep= "\t" )
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9690c49a1e34d9159002dc0e5e5f53b3974869c8
