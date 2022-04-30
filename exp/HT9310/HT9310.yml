@@ -33,8 +33,7 @@ param:
     feature_fraction:   [ 0.1, 1.0 ]
     num_leaves:         [ 16, 1024, "integer" ]
     min_data_in_leaf:   [  0, 8000, "integer" ]
-
-    feature_fraction: 0.6
+ 
 
     lambda_l1:  0
     lambda_l2:  0
