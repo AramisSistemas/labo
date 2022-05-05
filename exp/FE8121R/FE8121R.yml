@@ -13,7 +13,7 @@ experiment:
 
 param:
   dummiesNA: FALSE
-
+#PARA QUE DRAGO VEA
   corregir: TRUE    #se se corrige los campos/foto_mes  MALOS
   variablesdrift: [] #variables que se eliminan porque estan mal en el futuro
   
