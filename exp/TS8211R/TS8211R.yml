@@ -54,9 +54,9 @@ param:
   train_final:
     periodos: [ ]
     rango:
-      desde:  201901
-      hasta:  201911
-    excluir: [201906 ]
+      desde:  202001
+      hasta:  202011
+    excluir: [202006 ]
     undersampling: [  ]
     
 
