@@ -23,7 +23,8 @@ setwd( "~/buckets/b1/" )  #cambiar por la carpeta local
 dataset  <- fread( "./datasets/paquete_premium.csv.gz", stringsAsFactors= TRUE)
 
 #me quedo SOLO con los BAJA+2
-dataset  <- dataset[  clase_ternaria =="BAJA+2"  & foto_mes>=202001  & foto_mes<=202011, ]
+#dataset  <- dataset[  clase_ternaria =="BAJA+2"  & foto_mes>=202001  & foto_mes<=202011, ]
+dataset  <- dataset[  clase_ternaria =="CONTINUA"  & foto_mes>=202001  & foto_mes<=202011, ]
 gc()
 
 #quito los nulos para que se pueda ejecutar randomForest,  Dios que algoritmo prehistorico ...
