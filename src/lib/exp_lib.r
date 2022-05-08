@@ -18,12 +18,12 @@ exp_mlflow_iniciar  <- function()
   MLFLOW  <<- read_yaml( "/media/expshared/mlflow.yml" )
 
 
-Sys.setenv(MLFLOW_BIN="/home/rmlarreta/.local/bin/mlflow")
+
 Sys.setenv( MLFLOW_TRACKING_USERNAME= MLFLOW$tracking_username )
   Sys.setenv( MLFLOW_TRACKING_PASSWORD= MLFLOW$tracking_password )
   mlflow_set_tracking_uri( MLFLOW$tracking_uri )
 
-  Sys.setenv(MLFLOW_BIN=system("which mlflow", intern= TRUE))
+Sys.setenv(MLFLOW_BIN="/home/rmlarreta/.local/bin/mlflow")
   Sys.setenv(MLFLOW_PYTHON_BIN=system("which python3", intern= TRUE ))
   Sys.setenv(MLFLOW_TRACKING_URI= MLFLOW$tracking_uri, intern= TRUE )
 
