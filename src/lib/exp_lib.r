@@ -618,14 +618,14 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 
 #source( "~/labo/src/lib/exp_lib.r" )  
 
-#exp_start( "FE8121R" )
-#exp_start( "TS8212R" )  
-
-#exp_start( "HT8312R" )
-#exp_restart( "HT8312R" ) #reincio porque se murio la vm
+#exp_start( "FE8122R" )
+#exp_start( "TS8213R" )  
+#exp_start( "HT8313R" )
+#exp_restart( "HT8313R" ) #reincio porque se murio la vm
+#exp_start( "ZZ8413R" )
 
 #exp_start( "FM9410" )
 #exp_start( "SC9510" )
 #exp_start( "KA9610" )
 
-#exp_start( "ZZ8412R" )
+
