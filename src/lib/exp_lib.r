@@ -19,12 +19,14 @@ exp_mlflow_iniciar  <- function()
 
 
 
-Sys.setenv( MLFLOW_TRACKING_USERNAME= MLFLOW$tracking_username )
+  Sys.setenv( MLFLOW_TRACKING_USERNAME= MLFLOW$tracking_username )
   Sys.setenv( MLFLOW_TRACKING_PASSWORD= MLFLOW$tracking_password )
   mlflow_set_tracking_uri( MLFLOW$tracking_uri )
 
-Sys.setenv(MLFLOW_BIN="/home/rmlarreta/.local/bin/mlflow")
-  Sys.setenv(MLFLOW_PYTHON_BIN=system("which python3", intern= TRUE ))
+  # Sys.setenv(MLFLOW_BIN="/home/rmlarreta/.local/bin/mlflow")
+  # Sys.setenv(MLFLOW_PYTHON_BIN=system("which python3", intern= TRUE ))
+    Sys.setenv(MLFLOW_BIN=Sys.which("mlflow") )
+  Sys.setenv(MLFLOW_PYTHON_BIN=Sys.which("python3") )
   Sys.setenv(MLFLOW_TRACKING_URI= MLFLOW$tracking_uri, intern= TRUE )
 
   #creo el experimento
