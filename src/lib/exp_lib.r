@@ -9,6 +9,11 @@ require("data.table")
 require("mlflow")
 
 #------------------------------------------------------------------------------
+#variables globales
+
+EXP_MLFLOW_INICIADO  <- FALSE
+
+#------------------------------------------------------------------------------
 #Estoy al inicio del log, luego de grabar los titulos
 #inicializo el ambiente de mlflow
 
@@ -17,15 +22,11 @@ exp_mlflow_iniciar  <- function()
   #leo uri, usuario y password
   MLFLOW  <<- read_yaml( "/media/expshared/mlflow.yml" )
 
-
-
   Sys.setenv( MLFLOW_TRACKING_USERNAME= MLFLOW$tracking_username )
   Sys.setenv( MLFLOW_TRACKING_PASSWORD= MLFLOW$tracking_password )
   mlflow_set_tracking_uri( MLFLOW$tracking_uri )
 
-  # Sys.setenv(MLFLOW_BIN="/home/rmlarreta/.local/bin/mlflow")
-  # Sys.setenv(MLFLOW_PYTHON_BIN=system("which python3", intern= TRUE ))
-    Sys.setenv(MLFLOW_BIN=Sys.which("mlflow") )
+  Sys.setenv(MLFLOW_BIN=Sys.which("mlflow") )
   Sys.setenv(MLFLOW_PYTHON_BIN=Sys.which("python3") )
   Sys.setenv(MLFLOW_TRACKING_URI= MLFLOW$tracking_uri, intern= TRUE )
 
@@ -566,6 +567,14 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
   archivo  <- arch
   if( is.na(arch) )  archivo  <- paste0(  folder, substitute( reg), ext )
 
+  #Inicio mlflow de ser necesario
+  if( ! EXP_MLFLOW_INICIADO )
+  {
+    exp_mlflow_iniciar( )
+    EXP_MLFLOW_INICIADO  <<- TRUE
+  }
+
+
   if( !file.exists( archivo ) )  #Escribo los titulos
   {
     linea  <- paste0( "experimento\t",
@@ -573,8 +582,6 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
                       paste( list.names(reg), collapse="\t" ), "\n" )
 
     cat( linea, file=archivo )
-
-    exp_mlflow_iniciar( )
   }
 
   linea  <- paste0( EXP$experiment$name, "\t",
@@ -587,7 +594,7 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 
   #grabo mlflow
 
- #inicio el  run
+  #inicio el  run
   res  <- mlflow_start_run( nested= TRUE )
 
   #agrego tags al  run
@@ -615,14 +622,17 @@ exp_log  <- function( reg, arch=NA, folder="./", ext=".txt", verbose=TRUE )
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+
 
 #source( "~/labo/src/lib/exp_lib.r" )  
 
-#exp_start( "FE8124R" )
-#exp_start( "TS8214R" )  
-#exp_start( "HT8314R" )
-#exp_restart( "HT8314R" ) #reincio porque se murio la vm
-#exp_start( "ZZ8414R" )
+#exp_start( "FE8125R" )
+#exp_start( "TS8215R" )  
+#exp_start( "HT8315R" )
+#exp_restart( "HT8315R" ) #reincio porque se murio la vm
+#exp_start( "ZZ8415R" )
 
 #exp_start( "FM9410" )
 #exp_start( "SC9510" )
