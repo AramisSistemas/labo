@@ -8,7 +8,7 @@ experiment:
   script: "src/completo/z921_TS_generico.r"
   restart: FALSE
   name: "exp"
-  requires: [ "FE8126R" ]
+  requires: [ "FEFINAL" ]
 
 
 param:
@@ -27,14 +27,14 @@ param:
   train:
     periodos: [ ]
     rango:
-      desde:  201901
-      hasta:  201911
+      desde:  202001
+      hasta:  202005
     excluir: [ ]
-    undersampling: [ ]  #ATENCION  sin undersampling
+    undersampling: [  ]  #ATENCION  sin undersampling
 
   #donde valido
   validate:
-    periodos: [ 201911 ]
+    periodos: [ 202011 ]
     rango:
       desde:  
       hasta:  
@@ -57,8 +57,8 @@ param:
       desde:  202001
       hasta:  202011
     excluir: [202006 ]
-    #undersampling: [{clase: "CONTINUA", prob: 0.1 } ]
-    undersampling: [ ]
+    undersampling: [  ]
+    
 
   files:
     input:
